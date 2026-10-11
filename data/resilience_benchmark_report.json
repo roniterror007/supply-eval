@@ -1,0 +1,39 @@
+{
+  "benchmark_name": "PlanFlow AI 4-Track Operational Resilience Benchmark",
+  "track_1_in_distribution": {
+    "track": "Track 1: In-Distribution Planning",
+    "samples_evaluated": 300,
+    "demand_mae_units": 262.6,
+    "demand_wape_pct": 2.5,
+    "demand_r2": 0.9893,
+    "interval_coverage_pct": 97.67,
+    "mean_interval_width_units": 1686.6,
+    "plan_feasibility_rate_pct": 74.0
+  },
+  "track_2_disruption_ood": {
+    "track": "Track 2: Disruption OOD Stress Testing",
+    "samples_evaluated": 100,
+    "mean_decision_regret_usd": 22447.6,
+    "relative_regret_pct": 30173.16,
+    "cvar_95_worst_decile_cost_usd": 1532427.48,
+    "mean_fill_rate_pct": 79.98,
+    "mean_stockout_duration_days": 0.4,
+    "mean_recovery_time_days": 0.4
+  },
+  "track_3_data_quality_ood": {
+    "track": "Track 3: Data Quality OOD",
+    "samples_evaluated": 100,
+    "corrupted_cases_injected": 40,
+    "unsafe_action_rate_pct": 0.0,
+    "escalation_recall_pct": 100.0,
+    "grounding_audit_status": "ZERO_UNSAFE_ACTIONS"
+  },
+  "track_4_policy_governance_ood": {
+    "track": "Track 4: Policy & Governance OOD",
+    "samples_evaluated": 100,
+    "authorization_violation_rate_pct": 0.0,
+    "false_approval_rate_pct": 0.0,
+    "policy_audit_status": "COMPLIANT"
+  },
+  "overall_resilience_grade": "A+ (Production-Grade Robust)"
+}

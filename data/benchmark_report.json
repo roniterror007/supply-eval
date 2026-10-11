@@ -1,0 +1,106 @@
+{
+  "total_test_samples": 2000,
+  "demand_forecast_metrics": {
+    "mae": 97.5,
+    "rmse": 143.5,
+    "mape_pct": 7.8,
+    "wape_pct": 7.0,
+    "r2_score": 0.9735
+  },
+  "utilization_metrics": {
+    "mae": 3.94,
+    "rmse": 5.01,
+    "mape_pct": 51.33,
+    "wape_pct": 35.04,
+    "r2_score": 0.5494
+  },
+  "overload_detection_metrics": {
+    "accuracy": 1.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0.0,
+    "confusion_matrix": {
+      "true_positive": 0,
+      "false_positive": 0,
+      "true_negative": 2000,
+      "false_negative": 0
+    }
+  },
+  "shortage_detection_metrics": {
+    "accuracy": 0.984,
+    "precision": 0.984,
+    "recall": 1.0,
+    "f1_score": 0.9919,
+    "confusion_matrix": {
+      "true_positive": 1968,
+      "false_positive": 32,
+      "true_negative": 0,
+      "false_negative": 0
+    }
+  },
+  "overload_calibration": {
+    "ece": 0.0025,
+    "ece_pct": 0.25,
+    "mce": 0.0025,
+    "brier_score": 0.0,
+    "bins": [
+      {
+        "bin_range": "0.00-0.10",
+        "count": 2000,
+        "avg_confidence": 0.0025,
+        "empirical_accuracy": 0.0,
+        "calibration_gap": 0.0025
+      }
+    ]
+  },
+  "shortage_calibration": {
+    "ece": 0.0061,
+    "ece_pct": 0.61,
+    "mce": 0.4202,
+    "brier_score": 0.0132,
+    "bins": [
+      {
+        "bin_range": "0.50-0.60",
+        "count": 2,
+        "avg_confidence": 0.5798,
+        "empirical_accuracy": 1.0,
+        "calibration_gap": 0.4202
+      },
+      {
+        "bin_range": "0.60-0.70",
+        "count": 10,
+        "avg_confidence": 0.6511,
+        "empirical_accuracy": 0.5,
+        "calibration_gap": 0.1511
+      },
+      {
+        "bin_range": "0.70-0.80",
+        "count": 12,
+        "avg_confidence": 0.7604,
+        "empirical_accuracy": 0.75,
+        "calibration_gap": 0.0104
+      },
+      {
+        "bin_range": "0.80-0.90",
+        "count": 41,
+        "avg_confidence": 0.8673,
+        "empirical_accuracy": 0.7561,
+        "calibration_gap": 0.1112
+      },
+      {
+        "bin_range": "0.90-1.00",
+        "count": 1931,
+        "avg_confidence": 0.99,
+        "empirical_accuracy": 0.9927,
+        "calibration_gap": 0.0027
+      }
+    ]
+  },
+  "multi_agent_governance": {
+    "scenarios_audited": 30,
+    "contract_compliance_rate_pct": 100.0,
+    "mean_verification_score": 100.0,
+    "boss_approval_rate_pct": 100.0,
+    "total_peer_corrections_resolved": 4
+  }
+}

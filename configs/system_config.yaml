@@ -1,0 +1,45 @@
+# PlanFlow AI - System Configuration
+system:
+  project_name: "PlanFlow AI"
+  version: "1.0.0"
+  log_level: "INFO"
+  seed: 42
+
+hardware:
+  prefer_gpu: true
+  device: "cuda"  # Auto-falls back to cpu if cuda unavailable
+  mixed_precision: true
+  batch_size: 64
+
+data:
+  total_samples: 10000
+  reference_samples: 8000
+  test_ground_truth_samples: 2000
+  reference_path: "data/enterprise_reference_8k.parquet"
+  test_ground_truth_path: "data/test_ground_truth_2k.parquet"
+  metadata_path: "data/dataset_metadata.json"
+
+model:
+  hidden_dims: [128, 64, 32]
+  dropout: 0.15
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  epochs: 25
+  quantiles: [0.1, 0.5, 0.9]
+  checkpoint_dir: "checkpoints"
+
+agents:
+  peer_dialogue_max_turns: 3
+  consensus_convergence_threshold: 0.02
+  confidence_penalty_per_correction: 0.03
+  min_confidence_floor: 0.50
+
+verification:
+  strict_conservation_check: true
+  tolerance_fraction: 0.001  # 0.1% floating point allowance
+  min_verification_score_for_approval: 85.0
+
+governance:
+  dual_approval_revenue_threshold_usd: 1000000.0  # $1M
+  service_level_critical_threshold: 0.85
+  max_expedite_to_revenue_ratio: 0.35

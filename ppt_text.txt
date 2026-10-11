@@ -1,0 +1,274 @@
+Slide 0:
+1. Executive Summary
+Transform the existing Orders & Revenue forecasting solution into an Agentic Demand-to-Supply Planning System.
+Move from “What will demand be?” to “What should the enterprise do next?”
+Connect demand planning with factory planning, production planning and supply-chain optimization.
+Use specialized AI agents coordinated by a supervisor/orchestrator, with human approval for material decisions.
+Create a closed loop: Sense → Predict → Reason → Plan → Simulate → Recommend → Execute → Learn.
+2
+Slide 1:
+2. Why This Is the Next Step
+
+Existing foundation
+ML forecast + Salesforce opportunities + external indicators + backlog/OBL + scenarios + web app
+
+Current gap
+Forecast outputs still require cross-functional interpretation and manual downstream planning.
+
+Hackathon opportunity
+Add an agentic intelligence layer that translates demand into factory, production and supply-chain actions.
+
+Outcome
+Predictive → Explainable → Prescriptive → Agentic enterprise planning
+3
+Slide 2:
+3. Current Forecasting Foundation
+Historical monthly orders and external variables feed ML/time-series forecasting.
+Base orders are enriched with Salesforce opportunity information and business adjustments.
+Revenue uses book-to-bill and OBL-based logic, with delivery/lead-time scenarios.
+Forecast is available by Product Group, Country and Product Line / relevant business dimensions.
+Interactive web application supports forecast enrichment and scenario analysis.
+4
+Slide 3:
+4. Proposed Agentic Architecture
+
+Enterprise Data
+Atlas • SAP • Salesforce • Abacus • Crystal • Market
+
+Forecasting Agent
+Existing ML / time-series models
+
+Demand Planning Agent
+Consensus demand + drivers + risk
+
+Factory Planning Agent
+Allocation + capacity + load balancing
+
+Production Agent
+Schedule + bottlenecks + capacity
+
+Supply Chain Agent
+Materials + suppliers + inventory + lead time
+
+Scenario Agent
+What-if simulation
+
+Recommendation Agent
+Rank actions + business impact
+5
+Slide 4:
+5. Multi-Agent Roles
+
+Forecasting Agent
+Runs / interprets forecasts, confidence, drivers and accuracy.
+
+Opportunity Intelligence Agent
+Finds stale, shifting, high-value and at-risk opportunities.
+
+Demand Planning Agent
+Builds consensus demand from forecast, pipeline, backlog, market and scenarios.
+
+Factory Planning Agent
+Maps demand to factories and identifies capacity/load issues.
+
+Production Agent
+Converts factory demand into production recommendations.
+
+Supply Chain Agent
+Detects material, supplier, inventory and lead-time risks.
+
+Scenario Agent
+Propagates what-if changes through the planning chain.
+
+Recommendation Agent
+Ranks actions by cost, service, revenue and risk.
+6
+Slide 5:
+6. End-to-End Demand → Supply Flow
+
+Forecast
+
+
+Consensus Demand
+
+
+Factory Allocation
+
+
+Production Plan
+
+
+Material / Supplier Check
+
+
+Scenario Simulation
+
+
+Recommendation
+
+
+Human Approval
+
+
+Execution
+
+
+Actuals / Learning
+
+
+Closed-loop learning
+Actual demand, delivery, production and supply outcomes feed monitoring and future planning.
+7
+Slide 6:
+7. The Killer Feature: Planning Digital Twin
+Change one assumption and propagate its impact through the complete planning chain.
+Example: Demand +20% → factory overload → production bottleneck → material shortage → customer delivery risk.
+Compare alternatives: shift factory, overtime, expedite supplier, pre-build inventory or prioritize customers.
+Rank scenarios by revenue protection, cost, service level and operational risk.
+
+User asks
+“What happens if November demand increases by 20%?”
+
+Agent answers
+“Factory A reaches 108% utilization and Material M1 has a 600-unit gap. Shift $2M to Factory B + expedite M1.”
+8
+Slide 7:
+8. Example Agentic Recommendation
+
+DEMAND OUTLOOK
+Expected demand: $17.5MIncrease: +18%
+
+FACTORY IMPACT
+Factory A: 108% utilizationFactory B: 67%
+
+SUPPLY CHAIN
+Material M1 shortage: 600 unitsDelivery risk: HIGH
+
+RECOMMENDATION
+1. Shift $2M to Factory B2. Expedite M13. Pull production forward4. Confirm 3 high-risk opportunities
+
+Expected result
+Capacity 108% → 91%  |  Material shortage → 0  |  Delivery risk HIGH → LOW
+9
+Slide 8:
+9. Hackathon MVP — Build a Vertical Slice
+1. Reuse the existing forecast output for one selected Business Line / Product Group / Country.
+2. Build Demand Agent to combine ML forecast + opportunities + backlog + scenario adjustment.
+3. Build Factory Agent using sample capacity and historical factory allocation data.
+4. Build Production / Supply Chain checks using a curated demo dataset of capacity, materials and lead times.
+5. Build Scenario Agent to simulate +10%, +20%, supplier delay and capacity reduction.
+6. Build Recommendation Agent and a Streamlit conversational planning interface.
+10
+Slide 9:
+10. Demo Story — The 3-Minute Hackathon Moment
+
+User
+“Can we safely support the expected Germany demand next quarter?”
+
+Agents
+Forecast → Demand → Factory → Production → Supply Chain → Scenario → Recommendation
+
+System discovers
+Demand +18% | Factory A overload | Material M1 shortage | 3 customer delivery risks
+
+System recommends
+Shift $2M to Factory B + expedite M1 + pull production forward + obtain Sales confirmation
+
+Human decision
+Approve / Modify / Reject — then re-run the scenario before execution.
+11
+Slide 10:
+11. Technology Architecture
+Python-based agents and tools
+LangGraph-style supervisor / multi-agent orchestration
+Enterprise Large Language Model through approved Azure / enterprise gateway
+Snowflake as data and analytical foundation
+Existing forecasting models retained as deterministic ML tools
+Streamlit / web application for conversational planning and scenario analysis
+API integrations to Salesforce / SAP / planning systems where available
+Application Insights / OpenTelemetry / MLflow for monitoring, model and agent traceability
+12
+Slide 11:
+12. Human-in-the-Loop & Enterprise Guardrails
+
+Read / Analyze
+Agents can inspect authorized data and run approved models.
+
+Recommend
+Agents produce evidence-backed actions, confidence and expected impact.
+
+Approve
+Material ERP / procurement / production changes require human approval.
+Role-based and business-line access
+Grounded responses with source / data references
+Structured tool calls and validation
+Approval thresholds for high-value actions
+Full audit trail of agent reasoning, tools, inputs, outputs and decisions
+Prompt-injection and data-exfiltration protections
+13
+Slide 12:
+13. Business Value Across Functions
+
+Sales
+Opportunity risk, confirmation priorities, customer commitments
+
+Demand Planning
+Consensus forecast, drivers, scenarios, exception management
+
+Factory
+Capacity allocation, load balancing, factory transfer recommendations
+
+Production
+Bottlenecks, schedule changes, overtime / pre-build options
+
+Supply Chain
+Material shortages, supplier risk, inventory and lead-time decisions
+
+Finance / Leadership
+Revenue risk, target gap, scenario impact, enterprise trade-offs
+14
+Slide 13:
+14. Success Metrics
+
+Planning cycle time
+Reduce manual analysis / monthly effort
+
+Forecast quality
+Improve deviation vs. target and increase transparency
+
+Decision speed
+Time from forecast change to recommended action
+
+Risk detection
+Earlier identification of opportunity, capacity and material risks
+
+Service impact
+Fewer late / at-risk customer commitments
+
+Business value
+Revenue protected, cost avoided and inventory optimized
+15
+Slide 14:
+17. Final Vision
+
+SENSE
+Market + Sales + ERP + backlog + factory + supply signals
+
+PREDICT
+Existing ML forecasting engine
+
+PLAN
+Demand → Factory → Production → Supply Chain
+
+SIMULATE
+Digital-twin what-if scenarios
+
+ACT
+Ranked recommendations + human approval
+
+LEARN
+Actuals → monitoring → next planning cycle
+
+PLANFLOW AI
+From Forecast to Factory — Agentic End-to-End Planning
+18

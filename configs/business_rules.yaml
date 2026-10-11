@@ -1,0 +1,137 @@
+# Enterprise Business Master Data and Rules
+
+business_lines:
+  - name: "Analytical"
+    compatible_factories: ["Factory A (Stuttgart)", "Factory B (Detroit)", "Factory D (Wroclaw)"]
+  - name: "Force and Measurement"
+    compatible_factories: ["Factory B (Detroit)", "Factory E (Monterrey)"]
+  - name: "Instrumentation"
+    compatible_factories: ["Factory C (Yokohama)"]
+  - name: "Automotive Solutions"
+    compatible_factories: ["Factory A (Stuttgart)", "Factory B (Detroit)", "Factory C (Yokohama)", "Factory D (Wroclaw)", "Factory E (Monterrey)"]
+
+regions:
+  - name: "Germany"
+    code: "DE"
+    primary_factory: "Factory A (Stuttgart)"
+    currency: "EUR"
+    market_growth_trend: 1.05
+  - name: "United States"
+    code: "US"
+    primary_factory: "Factory B (Detroit)"
+    currency: "USD"
+    market_growth_trend: 1.08
+  - name: "Japan"
+    code: "JP"
+    primary_factory: "Factory C (Yokohama)"
+    currency: "JPY"
+    market_growth_trend: 1.03
+  - name: "Poland"
+    code: "PL"
+    primary_factory: "Factory D (Wroclaw)"
+    currency: "EUR"
+    market_growth_trend: 1.06
+  - name: "Mexico"
+    code: "MX"
+    primary_factory: "Factory E (Monterrey)"
+    currency: "USD"
+    market_growth_trend: 1.10
+
+factories:
+  "Factory A (Stuttgart)":
+    region: "Germany"
+    base_capacity_units: 12000
+    labor_rate_hourly: 48.0
+    overtime_capacity_multiplier: 1.25
+    overtime_cost_multiplier: 1.5
+    transfer_cost_per_unit_to:
+      "Factory D (Wroclaw)": 15.0
+      "Factory B (Detroit)": 45.0
+      "Factory E (Monterrey)": 50.0
+      "Factory C (Yokohama)": 60.0
+  "Factory B (Detroit)":
+    region: "United States"
+    base_capacity_units: 15000
+    labor_rate_hourly: 42.0
+    overtime_capacity_multiplier: 1.20
+    overtime_cost_multiplier: 1.5
+    transfer_cost_per_unit_to:
+      "Factory E (Monterrey)": 20.0
+      "Factory A (Stuttgart)": 45.0
+      "Factory D (Wroclaw)": 48.0
+      "Factory C (Yokohama)": 55.0
+  "Factory C (Yokohama)":
+    region: "Japan"
+    base_capacity_units: 10000
+    labor_rate_hourly: 38.0
+    overtime_capacity_multiplier: 1.15
+    overtime_cost_multiplier: 1.4
+    transfer_cost_per_unit_to:
+      "Factory B (Detroit)": 55.0
+      "Factory A (Stuttgart)": 60.0
+      "Factory D (Wroclaw)": 62.0
+      "Factory E (Monterrey)": 58.0
+  "Factory D (Wroclaw)":
+    region: "Poland"
+    base_capacity_units: 14000
+    labor_rate_hourly: 26.0
+    overtime_capacity_multiplier: 1.30
+    overtime_cost_multiplier: 1.35
+    transfer_cost_per_unit_to:
+      "Factory A (Stuttgart)": 15.0
+      "Factory B (Detroit)": 48.0
+      "Factory E (Monterrey)": 52.0
+      "Factory C (Yokohama)": 62.0
+  "Factory E (Monterrey)":
+    region: "Mexico"
+    base_capacity_units: 16000
+    labor_rate_hourly: 22.0
+    overtime_capacity_multiplier: 1.30
+    overtime_cost_multiplier: 1.3
+    transfer_cost_per_unit_to:
+      "Factory B (Detroit)": 20.0
+      "Factory A (Stuttgart)": 50.0
+      "Factory D (Wroclaw)": 52.0
+      "Factory C (Yokohama)": 58.0
+
+critical_materials:
+  - id: "MAT-A1"
+    name: "Analytical Processor Board"
+    category: "Electronics"
+    supplier: "TechFoundry"
+    std_lead_time_days: 45
+    expedite_lead_time_days: 15
+    expedite_cost_per_unit: 100.0
+    min_order_qty: 100
+  - id: "MAT-B2"
+    name: "High-Tensile Load Cell"
+    category: "Mechanical"
+    supplier: "ForceMetrics Inc"
+    std_lead_time_days: 30
+    expedite_lead_time_days: 10
+    expedite_cost_per_unit: 50.0
+    min_order_qty: 200
+  - id: "MAT-C3"
+    name: "Optical Sensor Array"
+    category: "Sensors"
+    supplier: "OpticCore"
+    std_lead_time_days: 60
+    expedite_lead_time_days: 20
+    expedite_cost_per_unit: 150.0
+    min_order_qty: 50
+  - id: "MAT-M1"
+    name: "Precision Semiconductor Microcontroller"
+    category: "Semiconductors"
+    supplier: "GlobalSilicon AG"
+    std_lead_time_days: 45
+    expedite_lead_time_days: 14
+    expedite_cost_per_unit: 120.0
+    min_order_qty: 500
+  - id: "MAT-M2"
+    name: "Structural Alloy Casting"
+    category: "Structural"
+    supplier: "Apex Metallurgy"
+    std_lead_time_days: 30
+    expedite_lead_time_days: 10
+    expedite_cost_per_unit: 80.0
+    min_order_qty: 300
